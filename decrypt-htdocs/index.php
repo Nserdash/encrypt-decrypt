@@ -28,7 +28,7 @@ if (isset($_POST['encode'])) {
                 <div class = "row">
                     <p>Вставьте URL</p>          
                     <form action = "" method = "post">                    
-                    <input type = "submit" value = "Декодировать" class = "btn" name = "encode">                    
+                    <input type = "submit" value = "Дешифровать" class = "btn" name = "encode">                    
                 </div>
                 <div>        
                     <textarea class = "url" id = "" name = "url"><?php echo (isset($_SESSION['url'])) ? $_SESSION['url'] : ""; ?></textarea>
