@@ -20,18 +20,8 @@ class Encrypt {
         }
         return $HexN;
     }
-
-    public static function generateKey($length){
-        $chars = '1234567890';
-        $numChars = strlen($chars);
-        $string = '';
-        for ($i = 0; $i < $length; $i++) {
-            $string .= substr($chars, rand(1, $numChars) - 1, 1);
-        }
-        return $string;
-    }    
        
-    public static function encryptUrl($url,$params,$key) {
+    public static function encryptUrl($url,$params) {
 
          $fullurl = explode("?", $url); //разбиваю url на 2 части
          $tokens = explode("&", $fullurl[1]); //получаю массив пар параметр=значение
@@ -39,8 +29,7 @@ class Encrypt {
          $encrypted_url = '';
          $counter = 0;
          $tokenname = '';
-         $tokenvalue = '';
-         $keysl = str_split($key);
+         $tokenvalue = '';         
 
          foreach($tokens as $token) {
             
@@ -49,7 +38,7 @@ class Encrypt {
             $tokenname = $tokenarray[0];
             $tokenvalue = $tokenarray[1];
             $tokenname = array_search($tokenname, $params); //заменяем название параметра на обозначение из словаря            
-            $tokenname = self::toTiny($keysl[$counter].$tokenname); //шифровка
+            $tokenname = self::toTiny(rand(11,99).$tokenname); //шифровка
 
             if ($counter == 0) {
              $encrypted_url = $tokenname.'='.$tokenvalue;

@@ -35,7 +35,7 @@ class Decrypt {
             $tokenname = $tokenarray[0];
             $tokenvalue = $tokenarray[1];                        
             $tokenname = self::reverseTiny($tokenname); //расшифровка
-            $tokenname = substr($tokenname, 1);            
+            $tokenname = substr($tokenname, 2);            
             $tokenname = $params[$tokenname]; //заменяем название параметра на обозначение из словаря            
             $encrypted_url = ($counter == 0) ? $tokenname.'='.$tokenvalue : $encrypted_url = $encrypted_url.'&'.$tokenname.'='.$tokenvalue;            
 

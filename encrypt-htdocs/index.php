@@ -11,8 +11,8 @@ if (isset($_POST['generate'])) {
 }  
 
 $encryptedUrl = '';
-if (isset($_POST['encode'])) { 
-  $encryptedUrl = Encrypt::encryptUrl($_SESSION['url'], $params, Encrypt::generateKey($_SESSION['length']));
+if (isset($_POST['encode'])) {   
+  $encryptedUrl = Encrypt::encryptUrl($_SESSION['url'], $params);
 }   
 ?>
 
